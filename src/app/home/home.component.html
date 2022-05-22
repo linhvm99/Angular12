@@ -1,24 +1,5 @@
 <div>
-    <h3>Đây là component Home</h3>
-    <p>Tôi là {{name}}!</p>
-    <!-- <input type="text" value="{{name}}" title="Đây là Interpolation">
-    <br>
-    <input *ngIf="age <= 18" type="text" [value]="name + ' 6 tuổi'" title="Đây là Property Binding">
-    <input *ngIf="age > 18" type="text" [value]="'Đây là ' + name + ' 23 tuổi'"> -->
-
-    <p>Tôi {{ age }} tuổi</p>
-    <p *ngIf="age > 18; else isChild">Tôi là người lớn</p>
-    <p>Tôi thích trái cây như:</p>
-    <ul *ngFor="let fruit of fruits; let i = index">
-        <li>{{i + 1}}. {{fruit}}</li>
-    </ul>
-
-    <!-- <div>
-        <p>Danh sách ứng viên</p>
-        <ul *ngFor="let author of authors">
-            <li>{{ author.firstName }}</li>
-        </ul>
-    </div> -->
+    <h3>Angular Pipe</h3>
 
     <ng-template
         ngFor
@@ -27,14 +8,10 @@
         let-idx="index"
         let-total="count"
     >
-        <li>{{ idx }}/{{total}} - {{ author.firstName }} - Salary: {{ author.salary | currency: "VND" }}</li>
+        <li>{{ idx }}/{{total}} - {{ author.firstName}} - {{ author.gender }} - Salary: {{ author.salary | currency: "VND" }}</li>
+        <p> {{ author.rich | onSale }}</p>
     </ng-template> 
 
-
-    <input type="text" [(ngModel)]="name">
-    <br>
-    <br>
-    <button (click)="resetName()">Reset</button>
 </div>
 
 <ng-template #isChild>

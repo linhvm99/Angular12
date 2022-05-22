@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
       email: 'ftwell0@phoca.cz',
       gender: 'Female',
       ipAddress: '99.180.237.33',
-      salary: 2200
+      salary: 2200,
+      rich: true
     },
     {
       id: 2,
@@ -26,7 +27,8 @@ export class HomeComponent implements OnInit {
       email: 'psigne1@berkeley.edu',
       gender: 'Female',
       ipAddress: '183.243.228.65',
-      salary: 1000
+      salary: 1000,
+      rich: false
     },
     // more data
   ];
