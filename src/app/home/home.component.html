@@ -1,19 +1,5 @@
 <div>
-    <h3>Angular Pipe</h3>
-
-    <ng-template
-        ngFor
-        [ngForOf]="authors"
-        let-author
-        let-idx="index"
-        let-total="count"
-    >
-        <li>{{ idx }}/{{total}} - {{ author.firstName}} - {{ author.gender }} - Salary: {{ author.salary | currency: "VND" }}</li>
-        <p> {{ author.rich | onSale }}</p>
-    </ng-template> 
+    <h3>Angular Cascading Combobox</h3>
 
 </div>
 
-<ng-template #isChild>
-    <p>Tôi là trẻ con</p>
-</ng-template>
