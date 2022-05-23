@@ -6,41 +6,76 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public name = 'Manh Linh';
-  public age = 20;
-  public fruits = ['Chuối', 'Nho'];
-  public authors = [
+  public districts: string[] = [];
+  public vietnam = [
+    { city: 'Chọn tỉnh thành', district: [] },
     {
-      id: 1,
-      firstName: 'Flora',
-      lastName: 'Twell',
-      email: 'ftwell0@phoca.cz',
-      gender: 'Female',
-      ipAddress: '99.180.237.33',
-      salary: 2200,
-      rich: true
+      city: 'An Giang',
+      district: [
+        'Thành phố Long Xuyên',
+        'Thành phố Châu Đốc',
+        'Thị xã Tân Châu',
+        'Huyện An Phú',
+        'Huyện Châu Phú',
+        'Huyện Châu Thành',
+        'Huyện Chợ Mới',
+        'Huyện Phú Tân',
+        'Huyện Thoại Sơn',
+        'Huyện Tịnh Biên',
+        'Huyện Tri Tôn',
+      ],
     },
     {
-      id: 2,
-      firstName: 'Priscella',
-      lastName: 'Signe',
-      email: 'psigne1@berkeley.edu',
-      gender: 'Female',
-      ipAddress: '183.243.228.65',
-      salary: 1000,
-      rich: false
+      city: 'Bà Rịa - Vũng Tàu',
+      district: [
+        'Thành phố Vũng Tàu',
+        'Thị xã Bà Rịa',
+        'Thị xã Phú Mỹ',
+        'Huyện Châu Đức',
+        'Huyện Côn Đảo',
+        'Huyện Đất Đỏ',
+        'Huyện Long Điền',
+        'Huyện Tân Thành',
+        'Huyện Xuyên Mộc',
+      ],
     },
-    // more data
+    {
+      city: 'Bạc Liêu',
+      district: [
+        'Thành phố Bạc Liêu',
+        'Huyện Đông Hải',
+        'Huyện Giá Rai',
+        'Huyện Hòa Bình',
+        'Huyện Hồng Dân',
+        'Huyện Phước Long',
+        'Huyện Vĩnh Lợi',
+      ],
+    },
   ];
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log('Trái cây: ', this.fruits);
-  }
+  ngOnInit(): void {}
 
-  public resetName(): void {
-    console.log('Reset name');
-    this.name = '';
+  public changeCity(event: any) {
+    const city = event.target.value;
+    console.log('Event: ', city);
+
+    if(!city){
+      return;
+    }
+    // Cách 1
+    // const search = this.vietnam.filter(data => data.city === city);
+    // console.log('Search: ', search);
+    // if(search && search.length > 0){
+    //   this.districts = search[0].district;
+    // }
+
+    // Cách 2
+    // this.districts = this.vietnam.find(data => data.city == city)?.district || [];
+  
+  
+  
+    this.districts = this.vietnam.find(data => data.city === city)?.district || [];
   }
 }

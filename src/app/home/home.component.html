@@ -1,5 +1,23 @@
 <div>
     <h3>Angular Cascading Combobox</h3>
 
+    <p>Tỉnh/Thành phố:</p>
+    <select name="" id="city" (change)="changeCity($event)">
+        <option *ngFor="let data of vietnam" value="{{ data.city }}">
+            {{ data.city }}
+        </option>
+    </select>
+
+    <div *ngIf="districts.length <= 0; else hasDistrict">
+    </div>
 </div>
+
+<ng-template #hasDistrict>
+    <p>Quận/Huyện:</p>
+    <select name="" id="district">
+        <option *ngFor="let district of districts">
+            {{ district }}
+        </option>
+    </select>
+</ng-template>
 
