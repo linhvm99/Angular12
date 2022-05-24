@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+  public loginName = 'admin'
+  public myColor = 'orange'
+
   constructor() { }
 
   ngOnInit(): void {
