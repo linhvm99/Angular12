@@ -14,9 +14,14 @@ export class ReactiveFormComponent implements OnInit {
   //   address: new FormControl('')
   // });
 
-  public formData2 = this.formBuilder.group({
-    name: this.formBuilder.control('', [Validators.required]), 
-    address: ['']
+  // public formData2 = this.formBuilder.group({
+  //   name: [''], 
+  //   address: ['']
+  // })
+
+  public reactiveForm = this.formBuilder.group({
+    name: ['', [Validators.required, , Validators.minLength(10)]],
+    address: ['', Validators.required]
   })
 
   constructor(private common: CommonService, private formBuilder: FormBuilder) { }
@@ -26,7 +31,7 @@ export class ReactiveFormComponent implements OnInit {
 
   public onSubmit(): void{
     // console.log('Form data: ', this.formData.value);
-    this.common.submitData(this.formData2.value);
+    this.common.submitData(this.reactiveForm.value);
   }
 
 }

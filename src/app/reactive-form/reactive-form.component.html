@@ -1,7 +1,20 @@
 <p>reactive-form works!</p>
-<form action="" [formGroup]="formData2" (ngSubmit)="onSubmit()">
+<!-- <form action="" [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
     Name: <input type="text" formControlName="name">
-    <p *ngIf="!formData2.get('name')?.valid" style="color: red;">Name is required!</p>
+    <p *ngIf="!reactiveForm.get('name')?.valid" style="color: red;">Name is required!</p>
     Address: <input type="text" formControlName="address"> <br>
-    <button type="submit" [disabled]="!formData2.valid">Submit</button>
+    <button type="submit" [disabled]="!reactiveForm.valid">Submit</button>
+</form> -->
+
+
+
+<form action="" [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+    Name: <input type="text" formControlName="name">
+    <p *ngIf="!reactiveForm.get('name')?.valid" style="color: red;">Name is not valid!</p>
+
+    Address: <input type="text" formControlName="address">
+    <p *ngIf="!reactiveForm.get('address')?.valid" style="color: red;">Address is not valid</p>
+
+
+    <button type="submit" [disabled]="!reactiveForm.valid">Submit</button>
 </form>
