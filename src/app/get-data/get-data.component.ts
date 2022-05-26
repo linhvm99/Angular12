@@ -14,9 +14,14 @@ export class GetDataComponent implements OnInit {
     this.httpServerServices.getComments().subscribe(data => {
       console.log('Data: ', data);
     });
+
     this.httpServerServices.getRandomUsers(5).subscribe(data => {
-      console.log('User data: ', data);
-    });
+      console.log('Users data: ', data)
+    })
+  }
+
+  ngOnchange(): void {
+
   }
 
 }
