@@ -8,6 +8,8 @@ import { HttpServerService } from '../services/http-server.service';
 })
 export class GetDataComponent implements OnInit {
 
+  // public users = [];
+
   constructor(private httpServerServices: HttpServerService) { }
 
   ngOnInit(): void {
@@ -16,12 +18,13 @@ export class GetDataComponent implements OnInit {
     });
 
     this.httpServerServices.getRandomUsers(5).subscribe(data => {
-      console.log('Users data: ', data)
+      console.log('Users data: ', data.results);
+      // this.users = data;
     })
+
+    
   }
 
-  ngOnchange(): void {
-
-  }
+  
 
 }

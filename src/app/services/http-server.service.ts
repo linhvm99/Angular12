@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +39,11 @@ export class HttpServerService {
     console.log('Payload url: ', url);
     console.log('Post comments: ', payload);
     return this.httpClient.post<any>(url, payload, this.httpOptions);
+  }
+
+  public deleteComments(id: number): Observable<any> {
+    const url = `${this.REST_API_SERVER}/id=` + id;
+    console.log('URL: ', url);
+    return this.httpClient.delete<any>(url, this.httpOptions);
   }
 }
