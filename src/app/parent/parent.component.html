@@ -1,0 +1,7 @@
+<p>This is parent component:</p>
+
+<p>{{ chatMessage }}</p>
+<button (click)="sendMoney()">Send money</button>
+<br>
+<app-child #liianli  name="Liianli" (sayHi)="sayHi($event)"></app-child>
+<app-child #michael  name="Michael" (sayHi)="sayHi($event)"></app-child>
